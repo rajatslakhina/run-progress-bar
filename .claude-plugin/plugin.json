@@ -1,0 +1,78 @@
+{
+  "name": "run-progress-bar",
+  "version": "0.2.0",
+  "description": "Live progress of long-running agent work above the prompt: task step, workflow phase, elapsed, ETA range, cost, anomaly flags.",
+  "license": "MIT",
+  "author": {
+    "name": "Rajat Lakhina"
+  },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "pollSeconds": {
+      "type": "number",
+      "title": "Poll interval (seconds)",
+      "default": 3,
+      "description": "How often the bar re-reads journals and file sizes."
+    },
+    "stallMinutes": {
+      "type": "number",
+      "title": "Stall threshold (minutes)",
+      "default": 10,
+      "description": "Minutes without a journal event or file write before a running agent counts as stalled."
+    },
+    "growthPercent": {
+      "type": "number",
+      "title": "Output growth flag (%)",
+      "default": 50,
+      "description": "Percent growth of a watched file within 30 minutes that raises a flag."
+    },
+    "costThresholdUsd": {
+      "type": "number",
+      "title": "Cost flag (USD)",
+      "default": 100,
+      "description": "Session cost at which the cost flag is raised; re-raised every 50 above it."
+    },
+    "showWhenIdle": {
+      "type": "boolean",
+      "title": "Show when idle",
+      "default": true,
+      "description": "Keeps a dim one-line marker with the session cost above the prompt while nothing runs, so the bar is always there."
+    },
+    "theme": {
+      "type": "string",
+      "title": "Theme",
+      "default": "classic",
+      "options": [
+        "classic",
+        "saiyan",
+        "pixel",
+        "ink",
+        "mecha",
+        "neon"
+      ],
+      "description": "classic = glyphs only. The others draw the session and the workflow's agents as small original avatars (role by label prefix, state by expression, a power level): saiyan = soft shapes with faces; pixel = 8-bit sprites; ink = brush strokes on paper; mecha = armour plates with a visor; neon = glowing outlines on dark glass."
+    },
+    "motion": {
+      "type": "string",
+      "title": "Motion",
+      "default": "on",
+      "options": [
+        "on",
+        "off"
+      ],
+      "description": "off disables every animation (reduced motion)."
+    },
+    "watchFiles": {
+      "type": "string",
+      "title": "Extra files to watch",
+      "default": "",
+      "description": "Comma-separated absolute paths of output files to watch for growth."
+    },
+    "debug": {
+      "type": "boolean",
+      "title": "Debug",
+      "default": false,
+      "description": "Writes a per-tick snapshot to the mod's store and shows a load toast and counters; for troubleshooting."
+    }
+  }
+}

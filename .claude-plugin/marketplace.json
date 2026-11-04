@@ -1,0 +1,12 @@
+{
+  "name": "run-progress-bar",
+  "description": "The run-progress-bar mod for Claude Code: a live progress band above the prompt, with optional avatar themes.",
+  "owner": { "name": "Rajat Lakhina" },
+  "plugins": [
+    {
+      "name": "run-progress-bar",
+      "source": "./",
+      "description": "Live progress of long-running agent work above the prompt: task step, workflow phase, elapsed, ETA range, cost, anomaly flags, and five optional avatar themes for the cast of agents."
+    }
+  ]
+}
